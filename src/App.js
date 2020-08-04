@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux'
 
 class App extends Component {
 
@@ -21,4 +22,9 @@ class App extends Component {
   }
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return { items: state.items} // the itmes key is what will be pass a key to the component.
+  // the state.items in the reducer is pass into this component using this function
+}
+
+export default connect(mapStateToProps)(App);
